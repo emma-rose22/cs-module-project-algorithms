@@ -3,13 +3,15 @@ Input: a List of integers as well as an integer `k` representing the size of the
 Returns: a List of integers
 '''
 def sliding_window_max(nums, k):
-    max_nums = []
-    for i in range(len(nums)-(k-1)):
-        window = []
-        for z in range(k):
-            window.append(i)
-            print(window)
-        print()
+    #keep the max numbers
+    max_nums = [] # O(1) space
+    #loop through all the numbers, but dont send the window
+    #into space outside the array
+    for i in range(len(nums)-(k-1)): #O(n) time
+        #set the window to the radius of the current number
+        #by the current number plus the window size
+        window = nums[i:i+k]
+        #get the max of the window and append it to our list
         max_nums.append(max(window))
 
     return max_nums
